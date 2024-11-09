@@ -1,5 +1,9 @@
 import TransactionSchema from "../schema/TransactionSchema"
 
-export const getTransaction = (email) => {
-  return TransactionSchema.findOne({ email });
+export const addTransaction = (obj) => {
+    return TransactionSchema.(obj).save();
+}
+
+export const getPostById = async (id) => {
+    return await TransactionSchema.findById(id).populate("userId");
 };
