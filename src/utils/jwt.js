@@ -10,6 +10,8 @@ export const Sign_Access_JWT  = (obj) =>{
 export const authenticateJWT = (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1];
 
+    console.log(2000, token, req.headers);
+    
     if (!token) {
       const respObj = {
         status: false,

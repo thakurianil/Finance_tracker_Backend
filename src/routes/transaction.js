@@ -38,15 +38,13 @@ TransactionRouter.post("/", authenticateJWT, async (req, res) => {
   }
 });
 
-TransactionRouter.get("/", authenticateJWT, async (req, res) => {
+TransactionRouter.get("/transaction", authenticateJWT, async (req, res) => {
     try {
-      const { user } = req;  // 'user' will be available if the JWT is valid
-      console.log("User:", user); // For debugging
+      const { user } = req; 
+      console.log("User:", user); 
   
-      // Pass the 'userId' from the decoded JWT to the 'getTransactions' function
       const transactions = await getTransactions(user.userId);
   
-      // Logging the transactions for debugging
       console.log("Transactions:", transactions);
   
       res.json({

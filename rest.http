@@ -14,15 +14,15 @@ POST http://localhost:9001/api/v1/users/login
 Content-Type:  application/json
 
 {
-    "email": "anil@gmail.com",
-    "password": "hello"
+    "email": "a@gmail.com",
+    "password": "123"
 }
 
 
 ###
 POST http://localhost:9001/api/v1/transactions
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyYzA5YjIwYTFjMzcyMWQ4NDA2YzUiLCJlbWFpbCI6ImFuaWxAZ21haWwuY29tIiwiaWF0IjoxNzMxMzc5NzMzLCJleHAiOjE3MzE0NjYxMzN9.oIutWKLjYzFutcgEAKQwWg0Pz2GGChwsU6faCUMjtn8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyYzhjNGFiYTE2ZWI0MWJhNTRmM2YiLCJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzMxMzgzODQ0LCJleHAiOjE3MzE0NzAyNDR9.oMvJKvOY-oy2jiVs_XOJFriFrODvW3nYxf_fmsQ-c-w
 
 {
     "type": "credit",
@@ -35,4 +35,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyY
 ###
 GET http://localhost:9001/api/v1/transactions
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyYzA5YjIwYTFjMzcyMWQ4NDA2YzUiLCJlbWFpbCI6ImFuaWxAZ21haWwuY29tIiwiaWF0IjoxNzMxMzc5NzMzLCJleHAiOjE3MzE0NjYxMzN9.oIutWKLjYzFutcgEAKQwWg0Pz2GGChwsU6faCUMjtn8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyYzhjNGFiYTE2ZWI0MWJhNTRmM2YiLCJlbWFpbCI6ImFAZ21haWwuY29tIiwiaWF0IjoxNzMxMzgzODQ0LCJleHAiOjE3MzE0NzAyNDR9.oMvJKvOY-oy2jiVs_XOJFriFrODvW3nYxf_fmsQ-c-w
