@@ -1,5 +1,5 @@
 ###
-POST http://localhost:9000/api/v1/users
+POST http://localhost:9001/api/v1/users
 Content-Type: application/json
 
 {
@@ -10,10 +10,29 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:9000/api/v1/users/login
+POST http://localhost:9001/api/v1/users/login
 Content-Type:  application/json
 
 {
     "email": "anil@gmail.com",
     "password": "hello"
 }
+
+
+###
+POST http://localhost:9001/api/v1/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyYzA5YjIwYTFjMzcyMWQ4NDA2YzUiLCJlbWFpbCI6ImFuaWxAZ21haWwuY29tIiwiaWF0IjoxNzMxMzc5NzMzLCJleHAiOjE3MzE0NjYxMzN9.oIutWKLjYzFutcgEAKQwWg0Pz2GGChwsU6faCUMjtn8
+
+{
+    "type": "credit",
+    "amount": "12300.00",
+    "description": "Purchase of equipment",
+    "date": "2024-11-11T09:00:00Z"
+}
+
+
+###
+GET http://localhost:9001/api/v1/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzMyYzA5YjIwYTFjMzcyMWQ4NDA2YzUiLCJlbWFpbCI6ImFuaWxAZ21haWwuY29tIiwiaWF0IjoxNzMxMzc5NzMzLCJleHAiOjE3MzE0NjYxMzN9.oIutWKLjYzFutcgEAKQwWg0Pz2GGChwsU6faCUMjtn8

@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const TransactionSchema = new mongoose.Schema({
-    userId :{
+    author :{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        ref: "user",
         required: true,
     },
     type:{
@@ -11,7 +11,7 @@ const TransactionSchema = new mongoose.Schema({
         required: true,
     },
     amount:{
-        type: Int16Array,
+        type: String,
         required: true,
 
     },
@@ -19,9 +19,9 @@ const TransactionSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Date: {
+    date: {
         type: Date,
-        default: Date.now(),
+        required: true,
       },
 },
 {
@@ -29,5 +29,4 @@ const TransactionSchema = new mongoose.Schema({
 }
 )
 
-
-export default mongoose.model("Transaction", TransactionSchema);
+export default mongoose.model("transaction", TransactionSchema);

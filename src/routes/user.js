@@ -3,7 +3,8 @@ import { comparePassword, hashPassword } from "../utils/bcrypt.js";
 import { addUser, getUser } from "../model/UserModel.js";
 import jwt from "jsonwebtoken";
 import { token } from "morgan";
-import { Sign_Access_JWT } from "../utils/jwt.js";
+import { authenticateJWT, Sign_Access_JWT } from "../utils/jwt.js";
+import { consoleMiddleWare } from "../utils/consoleMiddleware.js";
 
 export const UserRouter = express.Router();
 
@@ -40,7 +41,7 @@ UserRouter.post("/", async (req, res) => {
   }
 });
 
-UserRouter.post("/login", async (req, res) => {
+UserRouter.post("/login", consoleMiddleWare, async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -48,23 +49,24 @@ UserRouter.post("/login", async (req, res) => {
 
     const user = await getUser(email);
 
+    console.log(2222, user);
+    
+
     if (user?._id) {
       const isPasswordCorrect = comparePassword(password, user.password);
 
       if (isPasswordCorrect) {
         user.password = undefined;
 
-        const JWToken = Sign_Access_JWT({email: email});
+        const JWToken = Sign_Access_JWT({ userId: user._id, email: email });
 
         console.log(JWToken);
-        
-
 
         res.json({
           status: "success",
           message: "login Success",
           user,
-          token,
+          JWToken,
         });
         return;
       }
@@ -76,4 +78,14 @@ UserRouter.post("/login", async (req, res) => {
   } catch (error) {
     console.log(error.message);
   }
+});
+
+UserRouter.get("/verify", consoleMiddleWare, authenticateJWT, async (req, res) => {
+  const respObj = {
+    status: "success",
+    message: "Verified",
+    data: { username: req.user.username, _id: req.user._id },
+  };
+
+  return res.status(200).send(respObj);
 });

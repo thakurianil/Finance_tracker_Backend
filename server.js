@@ -3,6 +3,7 @@ import { MongoDbUrl } from './src/Database/dbconfig.js';
 import cors from 'cors'
 import morgan from 'morgan';
 import { UserRouter } from './src/routes/user.js';
+import { TransactionRouter } from './src/routes/transaction.js';
 
 
 const port = 9001;
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/v1/users", UserRouter);
+app.use("/api/v1/transactions", TransactionRouter);
 
 app.get("/", (req, res) =>{
     res.json({

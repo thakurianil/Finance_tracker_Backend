@@ -1,9 +1,10 @@
-import TransactionSchema from "../schema/TransactionSchema"
+import Transaction from "../schema/TransactionSchema.js";
 
-export const addTransaction = (obj) => {
-    return TransactionSchema.(obj).save();
-}
+export const addTransaction = async (transaction) => {
+  const newTransaction = new Transaction(transaction);
+  return await newTransaction.save();
+};
 
-export const getPostById = async (id) => {
-    return await TransactionSchema.findById(id).populate("userId");
+export const getTransactions = async (id) => {
+  return await Transaction.find({ author: id }).populate("author");
 };
